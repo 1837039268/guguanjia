@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
 import tk.mybatis.spring.annotation.MapperScan;
 
 import java.io.IOException;
@@ -25,6 +26,7 @@ import java.util.Properties;
 @Configuration
 @MapperScan(basePackages = "com.dfbz.mapper")
 @Import(SpringTxConfig.class)
+@PropertySource(value = "classpath:system.properties",encoding = "utf-8")
 public class SpringMybatisConfig {
 
     @Bean

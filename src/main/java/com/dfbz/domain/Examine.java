@@ -33,14 +33,14 @@ public class Examine {
      * 数据创建时间,在数据新增时设置
      */
     @Column(name = "create_date")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
 
     /**
      * 数据修改时间,在数据新增时和修改时设置
      */
     @Column(name = "update_date")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateDate;
 
     /**

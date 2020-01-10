@@ -45,15 +45,12 @@
 <div id="navbar" class="navbar navbar-default">
 
 
-
 </div>
 <!-- 主体 -->
 <div class="main-container" id="main-container">
 
 
     <div id="sidebar" class="sidebar responsive">
-
-
 
 
     </div>
@@ -197,9 +194,9 @@
                                             <tr v-for="app in pageInfo.list">
                                                 <td class="center">
                                                     <a @click="detail(app.id)">{{app.versionNo}}</a>
-                                                       <!--data-title="<V1.5.2>详情" data-mode="detail"
-                                                       data-url="app/detail/showlayer" data-width="50%"
-                                                       data-data="{id:'1'}"-->
+                                                    <!--data-title="<V1.5.2>详情" data-mode="detail"
+                                                    data-url="app/detail/showlayer" data-width="50%"
+                                                    data-data="{id:'1'}"-->
                                                 </td>
                                                 <td class="center">
                                                     {{app.platform==0?"Android":"IOS"}}
@@ -218,7 +215,8 @@
                                                         <a class="green" @click="toUpdate(app.id)" title="编辑">
                                                             <i class="ace-icon fa fa-pencil bigger-130"></i>
                                                         </a>
-                                                        <a class="red" href="javascript:void(0);" title="删除">
+                                                        <a class="red" href="javascript:void(0);" title="删除"
+                                                           @click="deleteById(app.id)">
 
                                                             <i class="ace-icon fa fa-trash-o bigger-130"></i>
                                                         </a>
@@ -241,21 +239,17 @@
                                                 <div class="pagination no-margin pull-right clearfix">
                                                     <li class="prev" v-if="pageInfo.hasPreviousPage"><a
                                                             href="javascript:void(0);"
-                                                            @click="selectAll(1,pageInfo.pageSize)">首页</a></li>
-                                                    <li class="prev disabled" v-if="!pageInfo.hasPreviousPage"><a
+                                                            @click="selectAll(1,pageInfo.pageSize)">首页</a>
+                                                    </li>
+                                                    <li class="prev disabled" v-else="!pageInfo.hasPreviousPage"><a
                                                             href="javascript:void(0);">首页</a></li>
-
-
                                                     <li class="prev" v-if="pageInfo.hasPreviousPage"><a
                                                             href="javascript:void(0);"
                                                             @click="selectAll(pageInfo.prePage,pageInfo.pageSize)">上一页</a>
                                                     </li>
-                                                    <li class="prev disabled" v-if="!pageInfo.hasPreviousPage"><a
-                                                            href="javascript:void(0);">上一页</a>
-                                                    </li>
-
-
-                                                    <li class="pageInfo.PageNum==num?'active':''"
+                                                    <li class="prev disabled" v-else="!pageInfo.hasPreviousPage"><a
+                                                            href="javascript:void(0);">上一页</a></li>
+                                                    <li :class="pageInfo.pageNum==num?'active':''"
                                                         v-for="num in pageInfo.navigatepageNums"><a
                                                             href="javascript:void(0);"
                                                             @click="selectAll(num,pageInfo.pageSize)">{{num}}</a>
@@ -264,18 +258,14 @@
                                                             href="javascript:void(0);"
                                                             @click="selectAll(pageInfo.nextPage,pageInfo.pageSize)">下一页</a>
                                                     </li>
-                                                    <li class="next disabled" v-if="!pageInfo.hasNextPage"><a
-                                                            href="javascript:void(0);">下一页</a>
-                                                    </li>
-
-
+                                                    <li class="next disabled" v-else="!pageInfo.hasNextPage"><a
+                                                            href="javascript:void(0);">下一页</a></li>
                                                     <li class="next" v-if="pageInfo.hasNextPage"><a
                                                             href="javascript:void(0);"
                                                             @click="selectAll(pageInfo.pages,pageInfo.pageSize)">尾页</a>
                                                     </li>
-                                                    <li class="next disabled" v-if="!pageInfo.hasNextPage"><a
-                                                            href="javascript:void(0);">尾页</a>
-                                                    </li>
+                                                    <li class="next disabled" v-else="!pageInfo.hasNextPage"><a
+                                                            href="javascript:void(0);">尾页</a></li>
                                                 </div>
 
                                             </div>
@@ -286,39 +276,46 @@
                                     <form action="app/save" method="post" id="app-save-form">
                                         <div class="center padding-10">
                                             <label>系统平台：</label>
-                                            <select name="platform" v-model="app.platform" class="width-50" datatype="*" nullmsg="请选择系统平台！">
+                                            <select name="platform" v-model="app.platform" class="width-50" datatype="*"
+                                                    nullmsg="请选择系统平台！">
                                                 <option value="0" selected>Android</option>
                                                 <option value="1">IOS</option>
                                             </select>
                                         </div>
                                         <div class="center padding-10">
                                             <label>是否强制更新：</label>
-                                            <select name="forceUpdate" v-model="app.forceUpdate" class="width-50" datatype="*" nullmsg="请选择是否强制更新！">
+                                            <select name="forceUpdate" v-model="app.forceUpdate" class="width-50"
+                                                    datatype="*" nullmsg="请选择是否强制更新！">
                                                 <option value="0" selected>否</option>
                                                 <option value="1">是</option>
                                             </select>
                                         </div>
                                         <div class="center padding-10">
                                             <label>版本号：</label>
-                                            <input type="text" class="width-50" name="versionNo" v-model="app.versionNo" datatype="*"
+                                            <input type="text" class="width-50" name="versionNo" v-model="app.versionNo"
+                                                   datatype="*"
                                                    nullmsg="请输入版本号"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label>下载地址：</label>
-                                            <input type="text" class="width-50" name="downPath" v-model="app.downPath" datatype="*"
+                                            <input type="text" class="width-50" name="downPath" v-model="app.downPath"
+                                                   datatype="*"
                                                    nullmsg="请输入下载地址！"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label>应用大小：</label>
-                                            <input type="text" class="width-50" name="size" v-model="app.size" datatype="*"
+                                            <input type="text" class="width-50" name="size" v-model="app.size"
+                                                   datatype="*"
                                                    nulmsg="请输入应用大小，单位MB"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label style="vertical-align: top;">版本说明：</label>
-                                            <textarea type="text" class="width-50" name="appExplain" v-model="app.appExplain"></textarea>
+                                            <textarea type="text" class="width-50" name="appExplain"
+                                                      v-model="app.appExplain"></textarea>
                                         </div>
                                         <div class="margin-t15">
-                                            <span class="btn btn-info btn-block bigger-120" id="app-save-btn" @click="insert">保 存</span>
+                                            <span class="btn btn-info btn-block bigger-120" id="app-save-btn"
+                                                  @click="insert">保 存</span>
                                         </div>
                                     </form>
                                 </div>
@@ -371,8 +368,6 @@
 
         $("#navbar").load("common/navbar.html");
         $("#sidebar").load("common/sidebar.html");
-
-
 
 
         /*$("#app-save-btn").click(function () {

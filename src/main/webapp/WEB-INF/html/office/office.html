@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    
+
+    <base href="/guguanjia/">
+
     <meta charset="utf-8"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -11,23 +13,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="../../static/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../../static/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../../static/chosen/chosen.min.css"/>
+    <link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="static/chosen/chosen.min.css"/>
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="../../static/ace/css/ace.min.css" id="main-ace-style"/>
-    <link rel="stylesheet" href="../../static/ace/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="../../static/ace/css/ace-rtl.min.css"/>
-    <link rel="stylesheet" href="../../static/ztree/metro.css"/>
-    <link rel="stylesheet" href="../../static/validate/css/validform.css"/>
-    <link rel="stylesheet" href="../../static/css/custom.css"/>
+    <link rel="stylesheet" href="static/ace/css/ace.min.css" id="main-ace-style"/>
+    <link rel="stylesheet" href="static/ace/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="static/ace/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="static/ztree/metro.css"/>
+    <link rel="stylesheet" href="static/validate/css/validform.css"/>
+    <link rel="stylesheet" href="static/css/custom.css"/>
 
     <!--[if !IE]> -->
-    <script src="../../static/jquery/jquery.js"></script>
+    <script src="static/jquery/jquery.js"></script>
     <!-- <![endif]-->
     <!-- ace settings handler -->
-    <script src="../../static/ace/js/ace-extra.min.js"></script>
+    <script src="static/ace/js/ace-extra.min.js"></script>
 
 </head>
 
@@ -36,550 +38,12 @@
 <div id="navbar" class="navbar navbar-default">
 
 
-    <div class="navbar-container clearfix" id="navbar-container">
-        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
-            <span class="sr-only">Toggle sidebar</span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-        </button>
-
-        <div class="navbar-header pull-left" style="min-width:190px;">
-            <a class="navbar-brand">
-                <small>
-                    固管家服务平台
-                </small>
-            </a>
-        </div>
-        <!-- <div class="navbar-header">
-            <ul class="nav navbar-nav">
-                <li class="">
-                    <a  data-trigger="ajax" data-target="#fill-main-content" class="bigger-120">
-                    <i class="menu-icon fa "></i>&nbsp;
-                    </a>
-                </li>
-            </ul>
-        </div> -->
-
-        <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-
-                <li class="green">
-                    <a class="dropdown-toggle" href="javascript:void(0);" id="fullscreen" title="全屏"
-                       onclick="launchFullscreen(document.documentElement);">
-                        <i class="ace-icon fa fa-arrows-alt "></i>
-                    </a>
-                </li>
-
-                <li class="purple" style="display:none;">
-                    <a data-toggle="dropdown" class="dropdown-toggle">
-                        <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                        <span class="badge badge-important">8</span>
-                    </a>
-
-                    <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="ace-icon fa fa-exclamation-triangle"></i>
-                            8 Notifications
-                        </li>
-
-                        <li>
-                            <a>
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
-												New Comments
-											</span>
-                                    <span class="pull-right badge badge-info">+12</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a>
-                                <i class="btn btn-xs btn-primary fa fa-user"></i>
-                                Bob just signed up as an editor ...
-                            </a>
-                        </li>
-
-                        <li>
-                            <a>
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
-												New Orders
-											</span>
-                                    <span class="pull-right badge badge-success">+8</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a>
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
-												Followers
-											</span>
-                                    <span class="pull-right badge badge-info">+11</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="dropdown-footer">
-                            <a>
-                                See all notifications
-                                <i class="ace-icon fa fa-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="light-blue">
-                    <a data-toggle="dropdown" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../../static/img/small-male-pic.png"/>
-                        <span class="user-info">
-									<small>你好,</small>
-									超级管理员
-								</span>
-
-                        <i class="ace-icon fa fa-caret-down"></i>
-                    </a>
-
-                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
-                            <a href="../userCenter/userCenter.html">
-                                <i class="ace-icon fa fa-user"></i>
-                                我的资料
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="../login.html">
-                                <i class="ace-icon fa fa-power-off"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div><!-- /.navbar-container -->
 </div>
 <!-- 主体 -->
 <div class="main-container" id="main-container">
 
     <div id="sidebar" class="sidebar responsive">
 
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                <button class="btn btn-success">
-                    <i class="ace-icon fa fa-signal"></i>
-                </button>
-
-                <button class="btn btn-info">
-                    <i class="ace-icon fa fa-pencil"></i>
-                </button>
-
-                <button class="btn btn-warning">
-                    <i class="ace-icon fa fa-users"></i>
-                </button>
-
-                <button class="btn btn-danger">
-                    <i class="ace-icon fa fa-cogs"></i>
-                </button>
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                <span class="btn btn-success"></span>
-
-                <span class="btn btn-info"></span>
-
-                <span class="btn btn-warning"></span>
-
-                <span class="btn btn-danger"></span>
-            </div>
-        </div><!-- /.sidebar-shortcuts -->
-
-        <ul class="nav nav-list" id="sidebar-menu">
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-user"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 个人中心 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../userCenter/userCenter.html"
-                                id="menu_manageruserCenter"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-file-o"></i>
-                            <span class="menu-text"
-                            > 我的资料 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-lastfm"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 单位管理 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../office/office-html/office/detail.html"
-                                id="menu_managercompanydetail"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 单位信息 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../user/user.html"
-                                id="menu_managercompanyaccounts"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 单位账号 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../work/company/work.html"
-                                id="menu_managercompanywork"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 电子台账 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-puzzle-piece"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 业务管理 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../work/admin/work.html"
-                                id="menu_manageradminwork"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 电子台账 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../qualification/index.html"
-                                id="menu_managerqualificationindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 资质审核 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../demand/index.html"
-                                id="menu_managerdemandindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 服务需求 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../examine/index.html"
-                                id="menu_managerexamineindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 考核管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../app/index.html"
-                                id="menu_managerappindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > APP管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../statute/index.html"
-                                id="menu_managerstatuteindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-bolt"></i>
-                            <span class="menu-text"
-                            > 法律法规 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-group"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 机构用户 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../area/index.html"
-                                id="menu_managerarea"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-globe"></i>
-                            <span class="menu-text"
-                            > 区域管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../office/office.html"
-                                id="menu_manageroffice"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-sitemap"></i>
-                            <span class="menu-text"
-                            > 机构管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../user/user-list.html"
-                                id="menu_managersysuser"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-user"></i>
-                            <span class="menu-text"
-                            > 用户管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../role/role.html"
-                                id="menu_managerrole"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-graduation-cap"></i>
-                            <span class="menu-text"
-                            > 角色管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-cogs"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 系统管理 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../menu/menu.html"
-                                id="menu_managermenu"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"
-                            > 菜单配置 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../dict/dict.html"
-                                id="menu_managerdict"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-calculator"></i>
-                            <span class="menu-text"
-                            > 字典管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../log/log.html"
-                                id="menu_managersyslog"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-copy"></i>
-                            <span class="menu-text"
-                            > 日志查询 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-binoculars"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 系统监控 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../ehcache/ehcache.html"
-                                id="menu_managermonitorehcache"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-crosshairs"></i>
-                            <span class="menu-text"
-                            > Ehcache监控 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../jvm/jvm.html"
-                                id="menu_managermonitorjvm"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-flash"></i>
-                            <span class="menu-text"
-                            > jvm监控 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-        </ul><!-- /.nav-list -->
-        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
-               data-icon2="ace-icon fa fa-angle-double-right"></i>
-        </div>
 
     </div>
 
@@ -703,10 +167,11 @@
 						</span>
 					</span>
                                             <input type="text" class="form-control search-query"
-                                                   name="name" placeholder="机构名称" id="search-input">
+                                                   name="name" placeholder="机构名称" id="search-input"
+                                                   v-model="params.name">
                                             <span class="input-group-btn">
 						<span class="btn  btn-success btn-sm"
-                              id="search-btn">
+                              id="search-btn" @click="selectAll(1,5)">
 							搜索 <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
 						</span>
 					</span>
@@ -722,7 +187,7 @@
                                         <div class="col-sm-4">
                                             <div>
                                                 <ul id="treeMenu" class="ztree">
-                                                   
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -740,35 +205,25 @@
                                                 </thead>
 
                                                 <tbody>
-                                                <tr>
+                                                <tr v-for="office in pageInfo.list">
                                                     <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<固管家服务平台>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'56'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)固管家服务平台</a>
+                                                        <a @click="detail(office.id)">(<b>公司</b>){{office.name}}</a>
                                                     </td>
                                                     <td class="center" style="display: none;">
 
                                                     </td>
                                                     <td class="center">
-                                                        中国
+                                                        {{office.areaName}}
                                                     </td>
                                                     <td class="center">
-                                                        管理员
+                                                        {{office.master}}
                                                     </td>
                                                     <td class="center">
-
+                                                        {{office.phone}}
                                                     </td>
                                                     <td class="center">
                                                         <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<固管家服务平台>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'56',parentId:''}"
-                                                               data-width="50%"
-                                                            >
+                                                            <a class="green" @click="toUpdate(office.id)">
                                                                 <i class="ace-icon fa fa-pencil bigger-130"></i>
                                                             </a>
 
@@ -782,384 +237,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<重庆天志环保有限公司（长寿处置场）>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'5'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)重庆天志环保有限公司（长寿处置场）</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
 
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-                                                        刘泉
-                                                    </td>
-                                                    <td class="center">
-                                                        13220361580
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<重庆天志环保有限公司（长寿处置场）>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'5',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<重庆天志环保有限公司（长寿处置场）>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'5'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<固管家产废方测试机构>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'53'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)固管家产废方测试机构</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-                                                        产废方测试负责人
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<固管家产废方测试机构>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'53',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<固管家产废方测试机构>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'53'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<新注册用户默认机构>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'2'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)新注册用户默认机构</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        中国
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<新注册用户默认机构>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'2',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<新注册用户默认机构>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'2'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<固管家运输方测试机构>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'52'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)固管家运输方测试机构</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-                                                        运输方测试负责人
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<固管家运输方测试机构>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'52',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<固管家运输方测试机构>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'52'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<固管家处置方测试机构>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'54'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)固管家处置方测试机构</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-                                                        固管家运输方测试机构负责人
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<固管家处置方测试机构>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'54',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<固管家处置方测试机构>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'54'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<重庆市环境保护局>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'57'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)重庆市环境保护局</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-                                                        张天霸
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<重庆市环境保护局>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'57',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<重庆市环境保护局>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'57'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<重庆环投再生资源有限公司>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'55'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)重庆环投再生资源有限公司</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<重庆环投再生资源有限公司>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'55',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<重庆环投再生资源有限公司>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'55'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<重庆市利特环保工程有限公司（德感）>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'13'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)重庆市利特环保工程有限公司（德感）</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-                                                        薛莉萍
-                                                    </td>
-                                                    <td class="center">
-                                                        15909308893
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="update.html"
-                                                               data-mode="page" data-title="<重庆市利特环保工程有限公司（德感）>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'13',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<重庆市利特环保工程有限公司（德感）>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'13'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">
-                                                        <a href="detail.html"
-                                                           data-title="<重庆市利特环保工程有限公司（黑石子）>详情" data-mode="detail"
-                                                           data-url="office/detail/showlayer"
-                                                           data-data="{id:'14'}"
-                                                           data-width="50%"
-                                                        >(<b>公司</b>)重庆市利特环保工程有限公司（黑石子）</a>
-                                                    </td>
-                                                    <td class="center" style="display: none;">
-
-                                                    </td>
-                                                    <td class="center">
-                                                        重庆市
-                                                    </td>
-                                                    <td class="center">
-                                                        薛莉萍
-                                                    </td>
-                                                    <td class="center">
-                                                        15909308893
-                                                    </td>
-                                                    <td class="center">
-                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="green" href="javascript:void(0);"
-                                                               data-mode="page" data-title="<重庆市利特环保工程有限公司（黑石子）>编辑"
-                                                               data-url="office/edit/showlayer"
-                                                               data-data="{id:'14',parentId:''}"
-                                                               data-width="50%"
-                                                            >
-                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                            </a>
-
-                                                            <a class="red" href="javascript:void(0);"
-                                                               data-mode="del" data-title="删除操作"
-                                                               data-msg="你确定删除<重庆市利特环保工程有限公司（黑石子）>节点及其所有的子节点吗?(慎重操作)"
-                                                               data-url="office/delete" data-data="{id:'14'}"
-                                                            >
-                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
                                                 </tbody>
                                             </table>
                                             <div class="space-8"></div>
@@ -1168,25 +246,41 @@
                                                 <div style="float: left;">
                                                     <div style="padding-top:5px;">
 			<span class="badge badge-info">
-				当前第 1 页 / 6 页，共 54 条数据
+				当前第 {{pageInfo.pageNum}} 页 / {{pageInfo.pages}} 页，共 {{pageInfo.total}} 条数据
 			</span>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div class="pagination no-margin pull-right clearfix">
-                                                        <li class="prev disabled"><a href="javascript:void(0);"
-                                                                                     onclick="">首页</a></li>
-                                                        <li class="prev disabled"><a href="javascript:void(0);"
-                                                                                     onclick="">上一页</a></li>
-                                                        <li class="active"><a href="javascript:void(0);"
-                                                                              onclick="">1</a></li>
-                                                        <li><a href="javascript:void(0);" onclick="">2</a></li>
-                                                        <li><a href="javascript:void(0);" onclick="">3</a></li>
-                                                        <li><a href="javascript:void(0);" onclick="">4</a></li>
-                                                        <li><a href="javascript:void(0);" onclick="">5</a></li>
-                                                        <li><a href="javascript:void(0);" onclick="">6</a></li>
-                                                        <li><a href="javascript:void(0);" onclick="">下一页</a></li>
-                                                        <li><a href="javascript:void(0);" onclick="">尾页</a></li>
+                                                        <li class="prev" v-if="pageInfo.hasPreviousPage"><a
+                                                                href="javascript:void(0);"
+                                                                @click="selectAll(1,pageInfo.pageSize)">首页</a>
+                                                        </li>
+                                                        <li class="prev disabled" v-else="!pageInfo.hasPreviousPage"><a
+                                                                href="javascript:void(0);">首页</a></li>
+                                                        <li class="prev" v-if="pageInfo.hasPreviousPage"><a
+                                                                href="javascript:void(0);"
+                                                                @click="selectAll(pageInfo.prePage,pageInfo.pageSize)">上一页</a>
+                                                        </li>
+                                                        <li class="prev disabled" v-else="!pageInfo.hasPreviousPage"><a
+                                                                href="javascript:void(0);">上一页</a></li>
+                                                        <li :class="pageInfo.pageNum==num?'active':''"
+                                                            v-for="num in pageInfo.navigatepageNums"><a
+                                                                href="javascript:void(0);"
+                                                                @click="selectAll(num,pageInfo.pageSize)">{{num}}</a>
+                                                        </li>
+                                                        <li class="next" v-if="pageInfo.hasNextPage"><a
+                                                                href="javascript:void(0);"
+                                                                @click="selectAll(pageInfo.nextPage,pageInfo.pageSize)">下一页</a>
+                                                        </li>
+                                                        <li class="next disabled" v-else="!pageInfo.hasNextPage"><a
+                                                                href="javascript:void(0);">下一页</a></li>
+                                                        <li class="next" v-if="pageInfo.hasNextPage"><a
+                                                                href="javascript:void(0);"
+                                                                @click="selectAll(pageInfo.pages,pageInfo.pageSize)">尾页</a>
+                                                        </li>
+                                                        <li class="next disabled" v-else="!pageInfo.hasNextPage"><a
+                                                                href="javascript:void(0);">尾页</a></li>
                                                     </div>
 
                                                 </div>
@@ -1558,7 +652,8 @@
             "fax": "",
             "remarks": "重庆龙健金属制造有限公司，位于重庆市江津区德感工业园区，厂区占地面积40余亩，建筑面积20000平方米。我厂现有员工85人，其中高级工程师5人，中级技术职称人员占30%，公司经过十余年发展，在电子、电镀废弃物综合利用项目上取得重大突破。<BR/>\r\n\r\n公司于2006年取得重庆市《危险废物经营许可证》，成为具有专业资质的环保企业。公司以发展循环经济，实现可持续发展、力争行业领头兵为企业目标。凭着先进的生产工艺设备、雄厚的技术力量、科学的管理制度、良好的企业信誉，充分保证国家对环境保护和用户对产品的要求，销售网络遍及全国各地。<BR/>\r\n\r\n主要经营产品：氧化铜、硫酸铜、铜粉、铜米、氧化镍、硫酸镍、氯化镍、碳酸镍、氧化钴、氢氧化铬等产品（其产品均符合国家或者相关行业企业标准），从而降低了危险废物对环境的危害性，促进了合理利用和资源节约，提高了资源利用率，保护了环境，实现了经济社会的可持续发展，达到了将危险废物变废为宝，化害为利和资源综合利用的根本目的。<BR/>",
             "email": "",
-            "createDate": 1470544140000}
+            "createDate": 1470544140000
+        }
         ];
         var root = {id: 0, name: "机构列表", open: true};
         treeData[treeData.length] = root;
@@ -1597,43 +692,57 @@
 </script>
 
 
-
-<script src="../../static/bootstrap/bootstrap.min.js"></script>
+<script src="static/bootstrap/bootstrap.min.js"></script>
 
 <!-- ace scripts -->
-<script src="../../static/ace/js/ace-elements.min.js"></script>
-<script src="../../static/ace/js/ace.min.js"></script>
+<script src="static/ace/js/ace-elements.min.js"></script>
+<script src="static/ace/js/ace.min.js"></script>
 
 <script type="text/javascript">
-    $(function(){
-        $("#navbar").load("html/commons/navbar.html");
-        $("#sidebar").load("html/commons/sidebar.html");
-        $("#ace-settings-container").load("html/commons/settingsContainer.html");
-    })
-    try{ace.settings.check('navbar' , 'fixed')}catch(e){}
-    try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
-    try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
-    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    $(function () {
+        $("#navbar").load("common/navbar.html");
+        $("#sidebar").load("common/sidebar.html");
+        // $("#ace-settings-container").load("html/commons/settingsContainer.html");
+    });
+    try {
+        ace.settings.check('navbar', 'fixed')
+    } catch (e) {
+    }
+    try {
+        ace.settings.check('main-container', 'fixed')
+    } catch (e) {
+    }
+    try {
+        ace.settings.check('sidebar', 'fixed')
+    } catch (e) {
+    }
+    try {
+        ace.settings.check('sidebar', 'collapsed')
+    } catch (e) {
+    }
+    try {
+        ace.settings.check('breadcrumbs', 'fixed')
+    } catch (e) {
+    }
 
 </script>
 
 <!-- 引入其他js -->
-<script src="../../static/js/history.js"></script>
-<script type="text/javascript" src="../../static/layer/layer.js"></script>
-<script type="text/javascript" src="../../static/js/spin.min.js"></script>
-<script type="text/javascript" src="../../static/ztree/jquery.ztree.all-3.5.min.js"></script>
-<script type="text/javascript" src="../../static/js/jquery.autosize.min.js"></script>
-<script type="text/javascript" src="../../static/chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="../../static/validate/Validform_v5.3.2_min.js"></script>
-<script type="text/javascript" src="../../static/js/jquery.form.js"></script>
-<script type="text/javascript" src="../../static/js/bootstrap-contextmenu.js"></script>
-<script type="text/javascript" src="../../static/js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="../../static/js/public.js"></script>
-<script type="text/javascript" src="../../static/vue/vue.js"></script>
-<script type="text/javascript" src="../../static/vue/axios.js"></script>
+<script src="static/js/history.js"></script>
+<script type="text/javascript" src="static/layer/layer.js"></script>
+<script type="text/javascript" src="static/js/spin.min.js"></script>
+<script type="text/javascript" src="static/ztree/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="static/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="static/validate/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
+<script type="text/javascript" src="static/js/bootstrap-contextmenu.js"></script>
+<script type="text/javascript" src="static/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="static/js/public.js"></script>
+<script type="text/javascript" src="static/vue/vue.js"></script>
+<script type="text/javascript" src="static/vue/axios.js"></script>
 
-<!--<script type="text/javascript" src="../../static/js/area/index.js"></script>-->
+<script type="text/javascript" src="static/js/office/office.js"></script>
 
 
 </body>

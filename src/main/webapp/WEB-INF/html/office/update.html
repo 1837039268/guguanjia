@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-  
+
+    <base href="/guguanjia/">
+
     <meta charset="utf-8"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -11,23 +13,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="../../static/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../../static/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../../static/chosen/chosen.min.css"/>
+    <link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="static/chosen/chosen.min.css"/>
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="../../static/ace/css/ace.min.css" id="main-ace-style"/>
-    <link rel="stylesheet" href="../../static/ace/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="../../static/ace/css/ace-rtl.min.css"/>
-    <link rel="stylesheet" href="../../static/ztree/metro.css"/>
-    <link rel="stylesheet" href="../../static/validate/css/validform.css"/>
-    <link rel="stylesheet" href="../../static/css/custom.css"/>
+    <link rel="stylesheet" href="static/ace/css/ace.min.css" id="main-ace-style"/>
+    <link rel="stylesheet" href="static/ace/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="static/ace/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="static/ztree/metro.css"/>
+    <link rel="stylesheet" href="static/validate/css/validform.css"/>
+    <link rel="stylesheet" href="static/css/custom.css"/>
 
     <!--[if !IE]> -->
-    <script src="../../static/jquery/jquery.js"></script>
+    <script src="static/jquery/jquery.js"></script>
     <!-- <![endif]-->
     <!-- ace settings handler -->
-    <script src="../../static/ace/js/ace-extra.min.js"></script>
+    <script src="static/ace/js/ace-extra.min.js"></script>
 
 </head>
 
@@ -36,549 +38,11 @@
 <div id="navbar" class="navbar navbar-default">
 
 
-    <div class="navbar-container clearfix" id="navbar-container">
-        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
-            <span class="sr-only">Toggle sidebar</span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-        </button>
-
-        <div class="navbar-header pull-left" style="min-width:190px;">
-            <a  class="navbar-brand">
-                <small>
-                    固管家服务平台
-                </small>
-            </a>
-        </div>
-        <!-- <div class="navbar-header">
-            <ul class="nav navbar-nav">
-                <li class="">
-                    <a  data-trigger="ajax" data-target="#fill-main-content" class="bigger-120">
-                    <i class="menu-icon fa "></i>&nbsp;
-                    </a>
-                </li>
-            </ul>
-        </div> -->
-
-        <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-
-                <li class="green">
-                    <a class="dropdown-toggle" href="javascript:void(0);" id="fullscreen" title="全屏"
-                       onclick="launchFullscreen(document.documentElement);">
-                        <i class="ace-icon fa fa-arrows-alt "></i>
-                    </a>
-                </li>
-
-                <li class="purple" style="display:none;">
-                    <a data-toggle="dropdown" class="dropdown-toggle" >
-                        <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                        <span class="badge badge-important">8</span>
-                    </a>
-
-                    <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="ace-icon fa fa-exclamation-triangle"></i>
-                            8 Notifications
-                        </li>
-
-                        <li>
-                            <a >
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
-												New Comments
-											</span>
-                                    <span class="pull-right badge badge-info">+12</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a >
-                                <i class="btn btn-xs btn-primary fa fa-user"></i>
-                                Bob just signed up as an editor ...
-                            </a>
-                        </li>
-
-                        <li>
-                            <a >
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
-												New Orders
-											</span>
-                                    <span class="pull-right badge badge-success">+8</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a >
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
-												Followers
-											</span>
-                                    <span class="pull-right badge badge-info">+11</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="dropdown-footer">
-                            <a >
-                                See all notifications
-                                <i class="ace-icon fa fa-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="light-blue">
-                    <a data-toggle="dropdown"  class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../../static/img/small-male-pic.png" />
-                        <span class="user-info">
-									<small>你好,</small>
-									超级管理员
-								</span>
-
-                        <i class="ace-icon fa fa-caret-down"></i>
-                    </a>
-
-                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
-                            <a href="../userCenter/userCenter.html">
-                                <i class="ace-icon fa fa-user"></i>
-                                我的资料
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="../login.html">
-                                <i class="ace-icon fa fa-power-off"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div><!-- /.navbar-container -->
 </div>
 <!-- 主体 -->
 <div class="main-container" id="main-container">
 
     <div id="sidebar" class="sidebar responsive">
-
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                <button class="btn btn-success">
-                    <i class="ace-icon fa fa-signal"></i>
-                </button>
-
-                <button class="btn btn-info">
-                    <i class="ace-icon fa fa-pencil"></i>
-                </button>
-
-                <button class="btn btn-warning">
-                    <i class="ace-icon fa fa-users"></i>
-                </button>
-
-                <button class="btn btn-danger">
-                    <i class="ace-icon fa fa-cogs"></i>
-                </button>
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                <span class="btn btn-success"></span>
-
-                <span class="btn btn-info"></span>
-
-                <span class="btn btn-warning"></span>
-
-                <span class="btn btn-danger"></span>
-            </div>
-        </div><!-- /.sidebar-shortcuts -->
-
-        <ul class="nav nav-list" id="sidebar-menu">
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-user"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 个人中心 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../userCenter/userCenter.html"
-                                id="menu_manageruserCenter"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-file-o"></i>
-                            <span class="menu-text"
-                            > 我的资料 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-lastfm"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 单位管理 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../office/office-detail.html"
-                                id="menu_managercompanydetail"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 单位信息 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../user/user.html"
-                                id="menu_managercompanyaccounts"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 单位账号 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../work/company/work.html"
-                                id="menu_managercompanywork"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 电子台账 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-puzzle-piece"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 业务管理 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../work/admin/work.html"
-                                id="menu_manageradminwork"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 电子台账 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../qualification/index.html"
-                                id="menu_managerqualificationindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 资质审核 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../demand/index.html"
-                                id="menu_managerdemandindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 服务需求 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../examine/index.html"
-                                id="menu_managerexamineindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > 考核管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../app/index.html"
-                                id="menu_managerappindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon "></i>
-                            <span class="menu-text"
-                            > APP管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../statute/index.html"
-                                id="menu_managerstatuteindex"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-bolt"></i>
-                            <span class="menu-text"
-                            > 法律法规 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-group"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 机构用户 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../area/index.html"
-                                id="menu_managerarea"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-globe"></i>
-                            <span class="menu-text"
-                            > 区域管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../office/office.html"
-                                id="menu_manageroffice"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-sitemap"></i>
-                            <span class="menu-text"
-                            > 机构管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../user/user-list.html"
-                                id="menu_managersysuser"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-user"></i>
-                            <span class="menu-text"
-                            > 用户管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../role/role.html"
-                                id="menu_managerrole"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-graduation-cap"></i>
-                            <span class="menu-text"
-                            > 角色管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-cogs"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 系统管理 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../menu/menu.html"
-                                id="menu_managermenu"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"
-                            > 菜单配置 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../dict/dict.html"
-                                id="menu_managerdict"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-calculator"></i>
-                            <span class="menu-text"
-                            > 字典管理 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../log/log.html"
-                                id="menu_managersyslog"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-copy"></i>
-                            <span class="menu-text"
-                            > 日志查询 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-            <li data-level="1">
-
-                <a
-                        href="javascript:void(0);" class="dropdown-toggle"
-                        haschild="true"
-                >
-                    <i class="menu-icon fa fa-binoculars"></i>
-                    <span class="menu-text"
-                          style="vertical-align: middle;"
-                    > 系统监控 </span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-
-                <ul class="submenu nav-hide" style="display:none;">
-                    <li data-level="2">
-
-                        <a
-                                href="../ehcache/ehcache.html"
-                                id="menu_managermonitorehcache"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-crosshairs"></i>
-                            <span class="menu-text"
-                            > Ehcache监控 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                    <li data-level="2">
-
-                        <a
-                                href="../jvm/jvm.html"
-                                id="menu_managermonitorjvm"
-                                haschild="false"
-                        >
-                            <i class="menu-icon fa fa-flash"></i>
-                            <span class="menu-text"
-                            > jvm监控 </span>
-                        </a>
-                        <b class="arrow"></b>
-
-                    </li>
-                </ul>
-            </li>
-        </ul><!-- /.nav-list -->
-        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-        </div>
 
 
     </div>
@@ -624,20 +88,20 @@
 
                         <div class="ace-settings-item">
                             <input type="checkbox" class="ace ace-checkbox-2"
-                                   id="ace-settings-navbar" /> <label class="lbl"
-                                                                      for="ace-settings-navbar"> 固定页头</label>
+                                   id="ace-settings-navbar"/> <label class="lbl"
+                                                                     for="ace-settings-navbar"> 固定页头</label>
                         </div>
 
                         <div class="ace-settings-item">
                             <input type="checkbox" class="ace ace-checkbox-2"
-                                   id="ace-settings-sidebar" /> <label class="lbl"
-                                                                       for="ace-settings-sidebar"> 固定导航菜单</label>
+                                   id="ace-settings-sidebar"/> <label class="lbl"
+                                                                      for="ace-settings-sidebar"> 固定导航菜单</label>
                         </div>
 
                         <div class="ace-settings-item">
                             <input type="checkbox" class="ace ace-checkbox-2"
-                                   id="ace-settings-breadcrumbs" /> <label class="lbl"
-                                                                           for="ace-settings-breadcrumbs"> 固定导航条</label>
+                                   id="ace-settings-breadcrumbs"/> <label class="lbl"
+                                                                          for="ace-settings-breadcrumbs"> 固定导航条</label>
                         </div>
 
                         <!-- <div class="ace-settings-item">
@@ -648,8 +112,8 @@
 
                         <div class="ace-settings-item">
                             <input type="checkbox" class="ace ace-checkbox-2"
-                                   id="ace-settings-add-container" /> <label class="lbl"
-                                                                             for="ace-settings-add-container"> 固定宽度
+                                   id="ace-settings-add-container"/> <label class="lbl"
+                                                                            for="ace-settings-add-container"> 固定宽度
                         </label>
                         </div>
                     </div>
@@ -658,20 +122,20 @@
                     <div class="pull-left width-50">
                         <div class="ace-settings-item">
                             <input type="checkbox" class="ace ace-checkbox-2"
-                                   id="ace-settings-hover" /> <label class="lbl"
-                                                                     for="ace-settings-hover"> 滑动式菜单</label>
+                                   id="ace-settings-hover"/> <label class="lbl"
+                                                                    for="ace-settings-hover"> 滑动式菜单</label>
                         </div>
 
                         <div class="ace-settings-item">
                             <input type="checkbox" class="ace ace-checkbox-2"
-                                   id="ace-settings-compact" /> <label class="lbl"
-                                                                       for="ace-settings-compact"> 紧凑式菜单</label>
+                                   id="ace-settings-compact"/> <label class="lbl"
+                                                                      for="ace-settings-compact"> 紧凑式菜单</label>
                         </div>
 
                         <div class="ace-settings-item">
                             <input type="checkbox" class="ace ace-checkbox-2"
-                                   id="ace-settings-highlight" /> <label class="lbl"
-                                                                         for="ace-settings-highlight"> 高亮选中</label>
+                                   id="ace-settings-highlight"/> <label class="lbl"
+                                                                        for="ace-settings-highlight"> 高亮选中</label>
                         </div>
                     </div>
                     <!-- /.pull-left -->
@@ -688,8 +152,9 @@
 
                         <div class="xuboxPageHtml" id="xboxTest" style="overflow-y: auto; height: 457px;">
 
-                           <div class="layer">
-                                <form enctype="multipart/form-data" name="FormPost" id="office-save-form" class="FormGrid" method="post" action="/guguanjia/manager/office/save">
+                            <div class="layer">
+                                <form enctype="multipart/form-data" name="FormPost" id="office-save-form"
+                                      class="FormGrid" method="post" action="/guguanjia/manager/office/save">
 
                                     <input type="hidden" value="56" name="id">
                                     <input type="hidden" value="" name="parentIds">
@@ -703,9 +168,11 @@
                                             <td class="CaptionTD">单位LOGO</td>
                                             <td class="DataTD width-100">
                                                 <div class="sbd">
-                                                    <input name="logoFile" type="file" id="logo_input" style="display:none;">
+                                                    <input name="logoFile" type="file" id="logo_input"
+                                                           style="display:none;">
                                                     <a id="office-logo">
-                                                        <img id="logo" width="60" height="60" src="/static/uploads/logos/07A71D4101DD4A6995221B0B1BCFED08.png">
+                                                        <img id="logo" width="60" height="60"
+                                                             :src="'/uploads/logos/'+office.logo">
                                                     </a>
                                                 </div>
                                             </td>
@@ -713,15 +180,20 @@
                                         <tr class="FormData">
                                             <td class="CaptionTD"><span class="red">*</span>机构名称</td>
                                             <td class="DataTD width-100">
-                                                <input type="text" name="name" datatype="*" nullmsg="请输入机构名称！" value="固管家服务平台">
+                                                <input type="text" name="name" datatype="*" nullmsg="请输入机构名称！"
+                                                       v-model="office.name">
                                             </td>
                                         </tr>
                                         <tr class="FormData">
                                             <td class="CaptionTD"><span class="red">*</span>机构类型</td>
                                             <td class="DataTD width-100">
-                                                <select class="chosen-select " name="type" id="chosen-select" style="display: none;">
-                                                    <option value="1" selected="">
+                                                <select class="chosen-select " name="type" id="chosen-select"
+                                                        style="display: none;" v-model="office.type">
+                                                    <option value="1">
                                                         公司
+                                                    </option>
+                                                    <option value="2">
+                                                        监管平台
                                                     </option>
 
                                                 </select>
@@ -732,9 +204,13 @@
                                             <td class="DataTD width-100">
 
                                                 <div class="clearfix width-100  input-group" style="">
-                                                    <input class="form-control search-query" type="text" readonly="" id="poffice" name="" value="">
+                                                    <input class="form-control search-query" type="text" readonly=""
+                                                           id="poffice" name="" value="">
                                                     <span class="input-group-btn">
-		<span class="btn btn-purple btn-sm" type="button" style="height: 34px;" data-mode="page" data-url="/guguanjia/manager/tag/treeselect" data-data="{url:'/guguanjia/manager/office/tree',id:'poffice_id',nameId:'poffice',pIdKey:'parentId',selectIds:'',curId:'56',checked:'false',rootNodeName:'',isLayer:'true'}" data-title="请选择" data-width="350px" data-height="400px">
+		<span class="btn btn-purple btn-sm" type="button" style="height: 34px;" data-mode="page"
+              data-url="/guguanjia/manager/tag/treeselect"
+              data-data="{url:'/guguanjia/manager/office/tree',id:'poffice_id',nameId:'poffice',pIdKey:'parentId',selectIds:'',curId:'56',checked:'false',rootNodeName:'',isLayer:'true'}"
+              data-title="请选择" data-width="350px" data-height="400px">
 			<i class="ace-icon fa fa-search bigger-110"></i>
             查找
 		</span>
@@ -749,9 +225,11 @@
                                             <td class="DataTD width-100">
 
                                                 <div class="clearfix width-100  input-group" style="">
-                                                    <input class="form-control search-query" type="text" readonly="" id="area" name="" value="中国" datatype="*" nullmsg="请选择归属区域">
+                                                    <input class="form-control search-query" type="text" readonly=""
+                                                           id="area" name="" v-model="office.areaName" datatype="*"
+                                                           nullmsg="请选择归属区域">
                                                     <span class="input-group-btn">
-		<span class="btn btn-purple btn-sm" type="button" id="icon-icon-btn" style="height: 34px;" >
+		<span class="btn btn-purple btn-sm" type="button" id="icon-icon-btn" style="height: 34px;">
 			<i class="ace-icon fa fa-search bigger-110"></i>
 
 		</span>
@@ -777,154 +255,10 @@
                                         <tr class="FormData">
                                             <td class="CaptionTD">废物类型</td>
                                             <td class="DataTD width-100">
-                                                <select name="wasteType" id="wasteType" style="display: none;">
+                                                <select name="wasteType" id="wasteType">
                                                     <option value="0">请选择废物类型</option>
-                                                    <option value="1">
-                                                        HW01-医疗废物
-                                                    </option>
-                                                    <option value="2">
-                                                        HW02-医药废物
-                                                    </option>
-                                                    <option value="3">
-                                                        HW03-废药物、药品
-                                                    </option>
-                                                    <option value="4">
-                                                        HW04-农药废物
-                                                    </option>
-                                                    <option value="5">
-                                                        HW05-木材防腐剂废物
-                                                    </option>
-                                                    <option value="6">
-                                                        HW06-有机溶剂废物
-                                                    </option>
-                                                    <option value="7">
-                                                        HW07-热处理含氰废物
-                                                    </option>
-                                                    <option value="8">
-                                                        HW08-废矿物油
-                                                    </option>
-                                                    <option value="9">
-                                                        HW09-油/水、烃/水混合物或乳化液
-                                                    </option>
-                                                    <option value="10">
-                                                        HW10-多氯（溴）联苯类废物
-                                                    </option>
-                                                    <option value="11">
-                                                        HW11-精（蒸）馏残渣
-                                                    </option>
-                                                    <option value="12">
-                                                        HW12-染料、涂料废物
-                                                    </option>
-                                                    <option value="13">
-                                                        HW13-有机树脂类废物
-                                                    </option>
-                                                    <option value="14">
-                                                        HW14-新化学药品废物
-                                                    </option>
-                                                    <option value="15">
-                                                        HW15-爆炸性废物
-                                                    </option>
-                                                    <option value="16">
-                                                        HW16-感光材料废物
-                                                    </option>
-                                                    <option value="17">
-                                                        HW17-表面处理废物
-                                                    </option>
-                                                    <option value="18">
-                                                        HW18-焚烧处置残渣
-                                                    </option>
-                                                    <option value="19">
-                                                        HW19-含金属羰基化合物废物
-                                                    </option>
-                                                    <option value="20">
-                                                        HW20-含铍废物
-                                                    </option>
-                                                    <option value="21">
-                                                        HW21-含铬废物
-                                                    </option>
-                                                    <option value="22">
-                                                        HW22-含铜废物
-                                                    </option>
-                                                    <option value="23">
-                                                        HW23-含锌废物
-                                                    </option>
-                                                    <option value="24">
-                                                        HW24-含砷废物
-                                                    </option>
-                                                    <option value="25">
-                                                        HW25-含硒废物
-                                                    </option>
-                                                    <option value="26">
-                                                        HW26-含镉废物
-                                                    </option>
-                                                    <option value="27">
-                                                        HW27-含锑废物
-                                                    </option>
-                                                    <option value="28">
-                                                        HW28-含碲废物
-                                                    </option>
-                                                    <option value="29">
-                                                        HW29-含汞废物
-                                                    </option>
-                                                    <option value="30">
-                                                        HW30-含铊废物
-                                                    </option>
-                                                    <option value="31">
-                                                        HW31-含铅废物
-                                                    </option>
-                                                    <option value="32">
-                                                        HW32-无机氟化物废物
-                                                    </option>
-                                                    <option value="33">
-                                                        HW33-无机氰化物废物
-                                                    </option>
-                                                    <option value="34">
-                                                        HW34-废酸
-                                                    </option>
-                                                    <option value="35">
-                                                        HW35-废碱
-                                                    </option>
-                                                    <option value="36">
-                                                        HW36-石棉废物
-                                                    </option>
-                                                    <option value="37">
-                                                        HW37-有机磷化合物废物
-                                                    </option>
-                                                    <option value="38">
-                                                        HW38-有机氰化物废物
-                                                    </option>
-                                                    <option value="39">
-                                                        HW39-含酚废物
-                                                    </option>
-                                                    <option value="40">
-                                                        HW40-含醚废物
-                                                    </option>
-                                                    <option value="41">
-                                                        HW41-废卤化有机溶剂
-                                                    </option>
-                                                    <option value="42">
-                                                        HW42-废有机溶剂
-                                                    </option>
-                                                    <option value="43">
-                                                        HW43-含多氯苯并呋喃类废物
-                                                    </option>
-                                                    <option value="44">
-                                                        HW44-含多氯苯并二恶英废物
-                                                    </option>
-                                                    <option value="45">
-                                                        HW45-含有机卤化物废物
-                                                    </option>
-                                                    <option value="46">
-                                                        HW46-含镍废物
-                                                    </option>
-                                                    <option value="47">
-                                                        HW47-含钡废物
-                                                    </option>
-                                                    <option value="48">
-                                                        HW48-有色金属冶炼废物
-                                                    </option>
-                                                    <option value="49">
-                                                        HW49-其他废物
+                                                    <option v-for="wasteType in wasteTypes" :value="wasteType.id">
+                                                        {{wasteType.code}}-{{wasteType.name}}
                                                     </option>
                                                 </select>
                                             </td>
@@ -932,59 +266,75 @@
                                         <tr class="FormData">
                                             <td class="CaptionTD">危废</td>
                                             <td class="DataTD width-100">
-                                                <select data-placeholder="请选择危废" id="waste" style="display: none;">
+                                                <select data-placeholder="请选择危废" id="waste">
                                                     <option value="0">请选择废物类型</option>
+                                                    <option v-for="waste in wastes" :value="waste.id">
+                                                        {{waste.code}}
+                                                    </option>
                                                 </select>
 
                                             </td>
                                         </tr>
+
+
                                         <tr class="FormData">
                                             <td class="CaptionTD"></td>
                                             <td class="DataTD width-100" id="selectedWaste">
-
+<!--                                                <p id="waste-3">-->
+<!--                                                    <i class="fa fa-minus-circle"></i>&nbsp;-->
+<!--                                                    HW02-医药废物 &gt; 271-001-02-->
+<!--                                                    <input type="hidden" name="waste" value="3">-->
+<!--                                                </p>-->
+                                                <p :id="'waste-'+waste.id" v-for="waste in office.wastes">
+                                                    <i class="fa fa-minus-circle"></i>&nbsp;
+                                                    {{waste.wasteTypeCode}}-{{waste.name}} &gt; {{waste.code}}
+                                                    <input type="hidden" name="waste" value="3">
+                                                </p>
                                             </td>
                                         </tr>
+
                                         <tr class="FormData">
                                             <td class="CaptionTD">负责人</td>
                                             <td class="DataTD width-100">
-                                                <input type="text" name="master" value="管理员">
+                                                <input type="text" name="master" v-model="office.master">
                                             </td>
                                         </tr>
                                         <tr class="FormData">
                                             <td class="CaptionTD">电话</td>
                                             <td class="DataTD width-100">
-                                                <input type="text" name="phone" value="">
+                                                <input type="text" name="phone" v-model="office.phone">
                                             </td>
                                         </tr>
                                         <tr class="FormData">
                                             <td class="CaptionTD">邮箱</td>
                                             <td class="DataTD width-100">
-                                                <input type="text" name="email" value="">
+                                                <input type="text" name="email" v-model="office.email">
                                             </td>
                                         </tr>
                                         <tr class="FormData">
                                             <td class="CaptionTD">联系地址</td>
                                             <td class="DataTD width-100">
-                                                <input type="text" name="address" value="">
+                                                <input type="text" name="address" v-model="office.address">
                                             </td>
                                         </tr>
                                         <tr class="FormData">
                                             <td class="CaptionTD">邮政编码</td>
                                             <td class="DataTD width-100">
-                                                <input type="text" name="zip_code" value="">
+                                                <input type="text" name="zip_code" v-model="office.zipCode">
                                             </td>
                                         </tr>
                                         <tr class="FormData">
                                             <td class="CaptionTD">传真</td>
                                             <td class="DataTD width-100">
-                                                <input type="text" name="fax" value="">
+                                                <input type="text" name="fax" v-model="office.fax">
                                             </td>
                                         </tr>
                                         <tr class="FormData">
                                             <td class="CaptionTD">机构描述</td>
                                             <td class="DataTD width-100">
                                                 <!-- 加载编辑器的容器 -->
-                                                <div id="container" class="edui-default" style="min-height: 300px; width: 100%;">
+                                                <div id="container" class="edui-default"
+                                                     style="min-height: 300px; width: 100%;">
 
                                                 </div>
 
@@ -994,16 +344,18 @@
                                     </table>
                                 </form>
                             </div>
-                            <div class="width-100 clearfix" tag-save-btn="" style="bottom: -36px; left: 0px; position: absolute;">
-	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="office-save-btn">
+                            <div class="width-100 clearfix" tag-save-btn=""
+                                 style="bottom: -36px; left: 0px; position: absolute;">
+	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="office-save-btn" @click="doUpdate">
 		<i class="ace-icon fa fa-floppy-o align-top bigger-125"></i> 提交
 	</span>
-                                <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right" id="office-save-cancel">
+                                <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right"
+                                      id="office-save-cancel" @click="doNotUpdate">
 		<i class="ace-icon fa fa-times align-top  bigger-125"></i> 取 消
 	</span>
                             </div>
 
-                            </div>
+                        </div>
 
                     </div>
 
@@ -1013,7 +365,7 @@
 
     </div><!-- /.main-content -->
 
-    <a href="javascript:void(0);" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"  style="z-index:1111">
+    <a href="javascript:void(0);" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse" style="z-index:1111">
         <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
     </a>
 </div><!-- /.main-container -->
@@ -1021,22 +373,22 @@
 <!-- 底部 -->
 <!-- basic scripts -->
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-<script src="../../static/js/jquery.uploadPreview.js"></script>
+<script src="static/js/jquery.uploadPreview.js"></script>
 <!-- ueditor所需引入 -->
-<script type="text/javascript" src="../../static/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" src="../../static/ueditor/ueditor.all.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../static/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="static/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="static/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script>
 
 
-    $(function(){
-        $("#icon-icon-btn").click(function(){
+    $(function () {
+        $("#icon-icon-btn").click(function () {
             layer.open({
                 type: 2,
                 title: '请单击选择图标',
                 maxmin: true,
                 content: 'html/area/select.html',
-                area: ['1000px' , '550px']
+                area: ['1000px', '550px']
             });
         });
 
@@ -1044,26 +396,25 @@
     });
 
 
-    $(function(){
-        <!-- 实例化编辑器 -->
-        var ue = UE.getEditor('container');
-        //描述框自动扩张高度
-        $('textarea[class*=autosize]').autosize({append: "\n"});
+    $(function () {
+        // <!-- 实例化编辑器 -->
+        // var ue = UE.getEditor('container');
+        // //描述框自动扩张高度
+        // $('textarea[class*=autosize]').autosize({append: "\n"});
+        //
+        // $("#chosen-select").chosen({width: "100%",search_contains: true});
+        //
+        //
+        // $('#logo_input').click(function(){
+        //     $("#logo_input").uploadPreview({ Img: "logo"});//, Width: 200, Height: 140
+        // });
+        //
+        // $("#wasteType").chosen({width: "100%",search_contains: true});
+        // $("#waste").chosen({width: "100%",search_contains: true});
 
-        $("#chosen-select").chosen({width: "100%",search_contains: true});
 
-
-        $('#logo_input').click(function(){
-            $("#logo_input").uploadPreview({ Img: "logo"});//, Width: 200, Height: 140
-        });
-
-        $("#wasteType").chosen({width: "100%",search_contains: true});
-        $("#waste").chosen({width: "100%",search_contains: true});
-
-
-
-        $('#selectedWaste').on('click', '.fa-minus-circle', function() {
-            if(confirm('确定取消该企业与危废对应关系吗？')) {
+        $('#selectedWaste').on('click', '.fa-minus-circle', function () {
+            if (confirm('确定取消该企业与危废对应关系吗？')) {
                 $(this).parent('p').remove();
             }
         });
@@ -1073,30 +424,28 @@
 </script>
 
 
-<script src="../../static/bootstrap/bootstrap.min.js"></script>
+<script src="static/bootstrap/bootstrap.min.js"></script>
 
 <!-- ace scripts -->
-<script src="../../static/ace/js/ace-elements.min.js"></script>
-<script src="../../static/ace/js/ace.min.js"></script>
-
+<script src="static/ace/js/ace-elements.min.js"></script>
+<script src="static/ace/js/ace.min.js"></script>
 
 
 <!-- 引入其他js -->
-<script src="../../static/js/history.js"></script>
-<script type="text/javascript" src="../../static/layer/layer.js"></script>
-<script type="text/javascript" src="../../static/js/spin.min.js"></script>
-<script type="text/javascript" src="../../static/ztree/jquery.ztree.all-3.5.min.js"></script>
-<script type="text/javascript" src="../../static/js/jquery.autosize.min.js"></script>
-<script type="text/javascript" src="../../static/chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="../../static/validate/Validform_v5.3.2_min.js"></script>
-<script type="text/javascript" src="../../static/js/jquery.form.js"></script>
-<script type="text/javascript" src="../../static/js/bootstrap-contextmenu.js"></script>
-<script type="text/javascript" src="../../static/js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="../../static/js/public.js"></script>
-<script type="text/javascript" src="../../static/vue/vue.js"></script>
-<script type="text/javascript" src="../../static/vue/axios.js"></script>
-
-<script type="text/javascript" src="../../static/js/area/index.js"></script>
+<script src="static/js/history.js"></script>
+<script type="text/javascript" src="static/layer/layer.js"></script>
+<script type="text/javascript" src="static/js/spin.min.js"></script>
+<script type="text/javascript" src="static/ztree/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="static/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="static/validate/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
+<script type="text/javascript" src="static/js/bootstrap-contextmenu.js"></script>
+<script type="text/javascript" src="static/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="static/js/public.js"></script>
+<script type="text/javascript" src="static/vue/vue.js"></script>
+<script type="text/javascript" src="static/vue/axios.js"></script>
+<script type="text/javascript" src="static/js/office/update.js"></script>
 
 
 </body>

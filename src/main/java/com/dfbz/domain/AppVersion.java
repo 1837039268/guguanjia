@@ -41,7 +41,7 @@ public class AppVersion {
      * 数据创建时间,在数据新增时设置
      */
     @Column(name = "create_date")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
 
     /**

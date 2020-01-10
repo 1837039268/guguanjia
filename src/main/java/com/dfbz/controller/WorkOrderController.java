@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,4 +36,31 @@ public class WorkOrderController {
         return workOrderService.selectAll(params);
     }
 
+    @RequestMapping("toUpdate")
+    @ResponseBody
+    public WorkOrder toUpdate(Long id){
+        return workOrderService.selectByPrimaryKey(id);
+    }
+
+
+    @RequestMapping("selectByOid")
+    public Map<String,Object> selectByOid(long oid){
+        return workOrderService.selectByOid(oid);
+    }
+
+    @RequestMapping("toDetail")
+    public ModelAndView toDetail(){
+        return new ModelAndView("/work/work-detail");
+    }
+
+    @RequestMapping("printPage")
+    public ModelAndView printPage(){
+        return new ModelAndView("/work/print/print");
+    }
+
+    @RequestMapping("print")
+    public Map<String,Object> print(long id){
+        return workOrderService.selectByOid(id);
+    }
 }
+

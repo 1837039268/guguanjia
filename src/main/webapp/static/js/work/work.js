@@ -40,6 +40,9 @@ let vm = new Vue({
                 layer.msg(error)
             })
         },
+        print:function(){
+
+        },
         initTree: function () {
             axios({
                 url: 'manager/office/list'
@@ -81,6 +84,23 @@ let vm = new Vue({
         select: function () {//查询全部资质
             this.clear();
             this.selectAll(1, 5);
+        },
+        selectOne:function(id){
+            axios({
+                url:'manager/admin/work/selectByOid',
+                params:{oid:id}
+
+            }).then(response => {//箭头函数可以自动将上下文的this传递到当前函数中
+                //
+                layer.obj = response.data;
+                layer.open({
+                    type:2,
+                    content:'manager/admin/work/toDetail',
+                    area:['80%','80%']
+                })
+            }).catch(function (error) {
+                layer.msg(error);
+            })
         },
         clear: function () {
             this.params = {

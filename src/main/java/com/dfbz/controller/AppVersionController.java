@@ -78,4 +78,18 @@ public class AppVersionController {
         return new ModelAndView("/app/detail");
     }
 
+    @RequestMapping("deleteById")
+    public Result deleteById(long id) {
+        AppVersion appVersion = new AppVersion();
+        appVersion.setId(id);
+        appVersion.setDelFlag("1");
+        int i = service.updateByPrimaryKeySelective(appVersion);
+        Result result = new Result();
+        if (i > 0) {
+            result.setSuccess(true);
+            result.setMsg("删除成功");
+        }
+        return result;
+    }
+
 }

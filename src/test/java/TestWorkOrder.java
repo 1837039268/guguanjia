@@ -1,5 +1,6 @@
 import com.dfbz.config.SpringMybatisConfig;
 import com.dfbz.mapper.WorkOrderMapper;
+import com.dfbz.service.StatuteService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zhou
@@ -18,10 +20,12 @@ import java.util.HashMap;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SpringMybatisConfig.class)
-public class TestWOrkOrder {
+public class TestWorkOrder {
 
     @Autowired
     WorkOrderMapper workOrderMapper;
+
+
 
     @Test
     public void TestWorkOrder() {
@@ -32,5 +36,8 @@ public class TestWOrkOrder {
         map.put("officeId", 54);
         workOrderMapper.selectByCondition(map);
     }
+
+
+
 
 }

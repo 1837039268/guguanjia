@@ -1,7 +1,9 @@
 package com.dfbz.service.impl;
 
-import com.dfbz.domain.Examine;
-import com.dfbz.domain.WorkOrder;
+import com.dfbz.domain.*;
+import com.dfbz.mapper.DetailMapper;
+import com.dfbz.mapper.SysUserMapper;
+import com.dfbz.mapper.TransferMapper;
 import com.dfbz.mapper.WorkOrderMapper;
 import com.dfbz.service.WorkOrderService;
 import com.github.pagehelper.PageHelper;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +31,15 @@ public class WorkOrderServiceImpl extends IServiceImpl<WorkOrder> implements Wor
     @Autowired
     WorkOrderMapper workOrderMapper;
 
+    @Autowired
+    SysUserMapper userMapper;
+
+    @Autowired
+    DetailMapper detailMapper;
+
+    @Autowired
+    TransferMapper transferMapper;
+
     @Override
     public PageInfo<WorkOrder> selectAll(Map<String, Object> params) {
         if (!params.containsKey("pageNum") || StringUtils.isEmpty(params.get("pageNum"))) {
@@ -39,6 +51,34 @@ public class WorkOrderServiceImpl extends IServiceImpl<WorkOrder> implements Wor
         PageHelper.startPage((int) params.get("pageNum"), (int) params.get("pageSize"));
         List<WorkOrder> list = workOrderMapper.selectByCondition(params);
         return new PageInfo<>(list);
+    }
+
+    @Override
+    public Map<String, Object> selectByOid(long oid) {
+        WorkOrder workOrder = mapper.selectByPrimaryKey(oid);
+        SysUser createUser = userMapper.selectById(workOrder.getCreateUserId());
+
+
+        SysUser transportUser = null;
+        if(!StringUtils.isEmpty(workOrder.getTransportUserId())){
+            transportUser=  userMapper.selectById(workOrder.getTransportUserId());
+        }
+
+        SysUser recipientUser = null;
+        if(!StringUtils.isEmpty(workOrder.getRecipientUserId())){
+            recipientUser = userMapper.selectById(workOrder.getRecipientUserId());
+        }
+        List<Detail> details = detailMapper.selectByOid(oid);
+        List<Transfer> transfers = transferMapper.selectByOid(oid);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("work",workOrder);
+        map.put("createUser",createUser);
+        map.put("transportUser",transportUser);
+        map.put("recipientUser",recipientUser);
+        map.put("details",details);
+        map.put("transfers",transfers);
+
+        return map;
     }
 
 }

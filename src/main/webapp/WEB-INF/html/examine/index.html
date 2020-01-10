@@ -299,45 +299,33 @@
                             </div>
                             <div>
                                 <div class="pagination no-margin pull-right clearfix">
-                                    <li class="prev" v-if="pageInfo.hasPreviousPage"><a
-                                            href="javascript:void(0);"
-                                            @click="selectAll(1,pageInfo.pageSize)">首页</a>
+                                    <li class="prev" v-if="pageInfo.hasPreviousPage"><a href="javascript:void(0);"
+                                                                                        @click="selectAll(1,pageInfo.pageSize)">首页</a>
                                     </li>
                                     <li class="prev disabled" v-else="!pageInfo.hasPreviousPage"><a
                                             href="javascript:void(0);">首页</a></li>
-
-
                                     <li class="prev" v-if="pageInfo.hasPreviousPage"><a
                                             href="javascript:void(0);"
                                             @click="selectAll(pageInfo.prePage,pageInfo.pageSize)">上一页</a>
                                     </li>
                                     <li class="prev disabled" v-else="!pageInfo.hasPreviousPage"><a
                                             href="javascript:void(0);">上一页</a></li>
-
-
-                                    <li class="pageInfo.pageNum==num?'active':''"
+                                    <li :class="pageInfo.pageNum==num?'active':''"
                                         v-for="num in pageInfo.navigatepageNums"><a
                                             href="javascript:void(0);"
                                             @click="selectAll(num,pageInfo.pageSize)">{{num}}</a>
                                     </li>
-
-
                                     <li class="next" v-if="pageInfo.hasNextPage"><a
                                             href="javascript:void(0);"
                                             @click="selectAll(pageInfo.nextPage,pageInfo.pageSize)">下一页</a>
                                     </li>
                                     <li class="next disabled" v-else="!pageInfo.hasNextPage"><a
-                                            href="javascript:void(0);" onclick="">下一页</a>
-                                    </li>
-
-
-                                    <li class="next" v-if="pageInfo.hasNextPage"><a
-                                            href="javascript:void(0);"
-                                            @click="selectAll(pageInfo.pages,pageInfo.pageSize)">尾页</a>
+                                            href="javascript:void(0);">下一页</a></li>
+                                    <li class="next" v-if="pageInfo.hasNextPage"><a href="javascript:void(0);"
+                                                                                    @click="selectAll(pageInfo.pages,pageInfo.pageSize)">尾页</a>
                                     </li>
                                     <li class="next disabled" v-else="!pageInfo.hasNextPage"><a
-                                            href="javascript:void(0);" onclick="">尾页</a>
-                                    </li>
+                                            href="javascript:void(0);">尾页</a></li>
                                 </div>
 
                             </div>

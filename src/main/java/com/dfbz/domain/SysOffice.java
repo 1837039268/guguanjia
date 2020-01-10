@@ -1,12 +1,17 @@
 package com.dfbz.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "sys_office")
-public class SysOffice {
+public class SysOffice implements Serializable {
     /**
      * 编号
      */
@@ -96,6 +101,7 @@ public class SysOffice {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "create_date")
     private Date createDate;
 
@@ -108,6 +114,7 @@ public class SysOffice {
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "update_date")
     private Date updateDate;
 
@@ -133,6 +140,28 @@ public class SysOffice {
      * 备注信息
      */
     private String remarks;
+
+    @Transient
+    private String areaName;
+
+    @Transient
+    private List<Waste> wastes;//关联waste列表
+
+    public String getAreaName() {
+        return areaName;
+    }
+
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
+
+    public List<Waste> getWastes() {
+        return wastes;
+    }
+
+    public void setWastes(List<Waste> wastes) {
+        this.wastes = wastes;
+    }
 
     /**
      * 获取编号

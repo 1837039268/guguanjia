@@ -3,6 +3,7 @@ package com.dfbz.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -29,4 +30,10 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     public InternalResourceViewResolver getViewResolver() {
         return new InternalResourceViewResolver("/WEB-INF/html", ".html");
     }
+
+    @Bean("multipartResolver")
+    public CommonsMultipartResolver getMultipartResolver(){
+        return new CommonsMultipartResolver();
+    }
+
 }

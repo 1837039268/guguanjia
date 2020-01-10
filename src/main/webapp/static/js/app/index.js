@@ -35,6 +35,26 @@ let vm = new Vue({
 
             })
         },
+        deleteById: function (id) {
+            let vue = this;
+            layer.confirm("您确定要删除吗？", {
+                btn: ['确定', '取消']
+            }, function () {
+                axios({
+                    url: 'manager/app/deleteById',
+                    params: {id: id}
+                }).then(response => {
+                    if (response.data.success) {
+                        vue.selectAll(vue.pageInfo.pageNum, 5);
+                        // this.selectAll(1, 5);
+                        layer.msg('删除成功');
+                        // if (vue.pageInfo.pageSize ==0)
+                    }
+                }).catch(error => {
+                    layer.msg(error);
+                })
+            });
+        },
         insert: function () {
             axios({
                 url: 'manager/app/insert',
