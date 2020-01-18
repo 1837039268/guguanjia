@@ -98,7 +98,7 @@
 
                                                 <div class="btn-group width-100">
 	<span data-toggle="dropdown" class="btn btn-primary btn-white dropdown-toggle width-100">
-		<span id="pullDownTreeCurNamethree">{{user.officeName}}</span> <i
+		<span id="pullDownTreeCurNamethree">{{officeName}}</span> <i
             class="ace-icon fa fa-angle-down icon-on-right"></i>
 	</span>
 
@@ -113,7 +113,7 @@
                                                                     <input type="text" id="pullDownTreeSearchthree"
                                                                            placeholder="搜索" class="width-100">
                                                                 </div>
-                                                                <ul class="ztree" id="pullDownTreethree">
+                                                                <ul class="ztree scrollable" id="pullDownTreethree">
 
                                                                 </ul>
                                                             </div>
@@ -130,9 +130,8 @@
                                         <tr class="FormData">
                                             <td class="CaptionTD">所属角色</td>
                                             <td class="DataTD width-100">
-                                                <select name="roleIds" multiple="" class="chosen-select tag-input-style"
-                                                        id="user-role-update" data-placeholder="选择角色"
-                                                        style="display: none;">
+                                                <select name="roleIds" class="chosen-select tag-input-style"
+                                                        id="user-role-update" data-placeholder="选择角色">
                                                     <option value="1" selected="">
                                                         超级管理员
                                                         &nbsp;(固管家服务平台)
@@ -158,52 +157,40 @@
                                                         &nbsp;(固管家运输方测试机构)
                                                     </option>
                                                 </select>
-                                                <div class="chosen-container chosen-container-multi chosen-container-active"
-                                                     style="width: 100%;" title="" id="user_role_update_chosen">
-                                                    <ul class="chosen-choices">
-                                                        <li class="search-field"><input onfocus="addC(this);"
-                                                                                        onblur="removeC(this);"
-                                                                                        type="text" value="选择角色"
-                                                                                        class="default"
-                                                                                        autocomplete="off"
-                                                                                        style="width: 77px;"></li>
-                                                    </ul>
-                                                    <div class="chosen-drop">
-                                                        <ul class="chosen-results">
-                                                            <li class="active-result highlighted"
-                                                                data-option-array-index="0">超级管理员 &nbsp;(固管家服务平台)
-                                                            </li>
-                                                            <li class="active-result" data-option-array-index="1">单位管理员
-                                                                &nbsp;(固管家服务平台)
-                                                            </li>
-                                                            <li class="active-result" data-option-array-index="2">
-                                                                固管家平台服务人员 &nbsp;(固管家服务平台)
-                                                            </li>
-                                                            <li class="active-result" data-option-array-index="3">监管方
-                                                                &nbsp;(重庆市环境保护局)
-                                                            </li>
-                                                            <li class="active-result" data-option-array-index="4">单位普通人员
-                                                                &nbsp;(固管家服务平台)
-                                                            </li>
-                                                            <li class="active-result" data-option-array-index="5">
-                                                                测试运输方普通人员 &nbsp;(固管家运输方测试机构)
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!--                                                <script>-->
-                                                <!--                                                    function addC(obj){-->
-                                                <!--                                                        var classVal = document.getElementById("user_role_update_chosen").getAttribute("class");-->
-                                                <!--                                                        classVal = classVal.concat("chosen-with-drop");-->
-                                                <!--                                                        document.getElementById("user_role_update_chosen").setAttribute("class",classVal);-->
-                                                <!--                                                    }-->
+<!--                                                <div class="chosen-container chosen-container-multi chosen-container-active"-->
+<!--                                                     style="width: 100%;" title="" id="user_role_update_chosen">-->
+<!--                                                    <ul class="chosen-choices">-->
+<!--                                                        <li class="search-field"><input onfocus="addC(this);"-->
+<!--                                                                                        onblur="removeC(this);"-->
+<!--                                                                                        type="text" value="选择角色"-->
+<!--                                                                                        class="default"-->
+<!--                                                                                        autocomplete="off"-->
+<!--                                                                                        style="width: 77px;"></li>-->
+<!--                                                    </ul>-->
+<!--                                                    <div class="chosen-drop">-->
+<!--                                                        <ul class="chosen-results">-->
+<!--                                                            <li class="active-result highlighted"-->
+<!--                                                                data-option-array-index="0">超级管理员 &nbsp;(固管家服务平台)-->
+<!--                                                            </li>-->
+<!--                                                            <li class="active-result" data-option-array-index="1">单位管理员-->
+<!--                                                                &nbsp;(固管家服务平台)-->
+<!--                                                            </li>-->
+<!--                                                            <li class="active-result" data-option-array-index="2">-->
+<!--                                                                固管家平台服务人员 &nbsp;(固管家服务平台)-->
+<!--                                                            </li>-->
+<!--                                                            <li class="active-result" data-option-array-index="3">监管方-->
+<!--                                                                &nbsp;(重庆市环境保护局)-->
+<!--                                                            </li>-->
+<!--                                                            <li class="active-result" data-option-array-index="4">单位普通人员-->
+<!--                                                                &nbsp;(固管家服务平台)-->
+<!--                                                            </li>-->
+<!--                                                            <li class="active-result" data-option-array-index="5">-->
+<!--                                                                测试运输方普通人员 &nbsp;(固管家运输方测试机构)-->
+<!--                                                            </li>-->
+<!--                                                        </ul>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
 
-                                                <!--                                                    function removeC(obj) {-->
-                                                <!--                                                        var classVal = document.getElementById("user_role_update_chosen").getAttribute("class");-->
-                                                <!--                                                        classVal = classVal.replace("chosen-with-drop"," ");-->
-                                                <!--                                                        document.getElementById("user_role_update_chosen").setAttribute("class",classVal);-->
-                                                <!--                                                    }-->
-                                                <!--                                                </script>-->
                                             </td>
                                         </tr>
                                         <tr class="FormData">
@@ -245,11 +232,11 @@
 
                             <div class="width-100 clearfix" tag-save-btn=""
                                  style="bottom: -36px; left: 0px; position: absolute;">
-	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="sysuser-save-save">
+	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="sysuser-save-save" @click="doUpdate">
 		<i class="ace-icon fa fa-floppy-o align-top bigger-125"></i> 确 定
 	</span>
                                 <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right"
-                                      id="sysuser-save-cancel">
+                                      id="sysuser-save-cancel" @click="doNotUpdate">
 		<i class="ace-icon fa fa-times align-top  bigger-125"></i> 取 消
 	</span>
                             </div>
@@ -341,13 +328,26 @@
     $(function () {
         $("#navbar").load("html/commons/navbar.html");
         $("#sidebar").load("html/commons/sidebar.html");
-        $("#ace-settings-container").load("html/commons/settingsContainer.html");
-        $("#role-select").chosen({width: "80%", search_contains: true});
-        $("#role-choose").chosen({width: "100%", search_contains: true});
+        // $("#ace-settings-container").load("html/commons/settingsContainer.html");
+        // $("#role-select").chosen({width: "80%", search_contains: true});
+        // $("#role-choose").chosen({width: "100%", search_contains: true});
     })
 
 
 </script>
+<!--<script>-->
+<!--    function addC(obj) {-->
+<!--        var classVal = document.getElementById("user_role_update_chosen").getAttribute("class");-->
+<!--        classVal = classVal.concat("chosen-with-drop");-->
+<!--        document.getElementById("user_role_update_chosen").setAttribute("class", classVal);-->
+<!--    }-->
+
+<!--    function removeC(obj) {-->
+<!--        var classVal = document.getElementById("user_role_update_chosen").getAttribute("class");-->
+<!--        classVal = classVal.replace("chosen-with-drop", " ");-->
+<!--        document.getElementById("user_role_update_chosen").setAttribute("class", classVal);-->
+<!--    }-->
+<!--</script>-->
 
 <!-- 引入其他js -->
 <script src="static/js/history.js"></script>

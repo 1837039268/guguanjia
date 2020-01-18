@@ -16,4 +16,7 @@ public interface SysRoleService extends IService<SysRole> {
     int insertBatch(List<Long> cids, long rid);
 
     SysRole selectByUid(Long rid);
+
+    int deleteByRoleId(long roleId);
+    int insertRoleResource(Long[] rid, Long roleId);
 }

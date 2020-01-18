@@ -374,12 +374,12 @@
                                     <form action="sysuser/save" method="post" id="sysuser-save-form">
                                         <div class="center padding-10">
                                             <label>登录名：</label>
-                                            <input type="text" class="width-50" name="username" id="username"
+                                            <input type="text" class="width-50" v-model="sysUser.username" name="username" id="username"
                                                    ajaxurl="sysuser/checkname" datatype="*" nullmsg="请输入登录名！"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label>密码：</label>
-                                            <input type="password" class="width-50" name="password"
+                                            <input type="password" class="width-50" v-model="sysUser.password" name="password"
                                                    datatype="*6-16" errormsg="密码范围在6~16位之间！" nullmsg="请输入密码！"/>
                                         </div>
                                         <div class="center padding-10">
@@ -390,7 +390,7 @@
                                         </div>
                                         <div class="center padding-10">
                                             <label>真实姓名：</label>
-                                            <input type="text" class="width-50" name="name" datatype="*"
+                                            <input type="text" class="width-50" v-model="sysUser.name" name="name" datatype="*"
                                                    nullmsg="请输入姓名！"/>
                                         </div>
                                         <div class="center padding-10">
@@ -399,7 +399,7 @@
 
                                                 <div class="btn-group width-100">
 	<span data-toggle="dropdown" class="btn btn-primary btn-white dropdown-toggle width-100">
-		<span id="pullDownTreeCurNametwo">请选择归属机构</span> <i class="ace-icon fa fa-angle-down icon-on-right"></i>
+		<span id="pullDownTreeCurNametwo">{{insertOfficeName}}</span> <i class="ace-icon fa fa-angle-down icon-on-right"></i>
 	</span>
 
                                                     <div class="dropdown-menu dropdown-caret scrollable width-100"
@@ -456,27 +456,27 @@
                                         </div>
                                         <div class="center padding-10">
                                             <label>工号：</label>
-                                            <input type="text" class="width-50" name="no"/>
+                                            <input type="text" class="width-50" v-model="sysUser.no" name="no"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label>邮箱：</label>
-                                            <input type="text" class="width-50" name="email"/>
+                                            <input type="text" class="width-50" v-model="sysUser.email" name="email"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label>电话：</label>
-                                            <input type="text" class="width-50" name="phone"/>
+                                            <input type="text" class="width-50" v-model="sysUser.phone" name="phone"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label>手机：</label>
-                                            <input type="text" class="width-50" name="mobile"/>
+                                            <input type="text" class="width-50" v-model="sysUser.mobile" name="mobile"/>
                                         </div>
                                         <div class="center padding-10">
                                             <label style="vertical-align: top;">描述：</label>
-                                            <textarea type="text" class="width-50" name="remarks"></textarea>
+                                            <textarea type="text" class="width-50" v-model="sysUser.remarks" name="remarks"></textarea>
                                         </div>
                                         <div class="margin-t15">
                                             <span class="btn btn-info btn-block bigger-120"
-                                                  id="sysuser-save-btn">保 存</span>
+                                                  id="sysuser-save-btn" @click="insertUsers">保 存</span>
                                         </div>
                                     </form>
                                 </div>
@@ -713,7 +713,7 @@
         $("#sidebar").load("common/sidebar.html");
         $("#ace-settings-container").load("html/commons/settingsContainer.html");
         // $("#role-select").chosen({width: "80%", search_contains: true});
-        $("#role-choose").chosen({width: "100%", search_contains: true});
+        // $("#role-choose").chosen({width: "100%", search_contains: true});
     });
     try {
         ace.settings.check('navbar', 'fixed')

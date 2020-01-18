@@ -17,16 +17,37 @@ let vm = new Vue({
             nodes: [],
             treeObj: {},
             role: {},
+            rids: [],
             resources: [],//存放当前角色的权限数组
             officeNodes: [],//公司节点数组
             officeTreeObj: '',//公司树对象
             offices: [],//存放当前角色的授权公司数组
-            params: {}
+            params: {},
+            oid: '',
+            officeName: ''
         }
     },
     methods: {
-        update: function () {
+        doUpdate: function () {
+            this.resources=[];
+            var resourceNodes = this.treeObj.getCheckedNodes(true);
+            console.log(this.resources);
+            for (let i = 0; i < resourceNodes.length; i++) {
+                this.resources.push(resourceNodes[i].id);
+            }
+            console.log(this.resources);
 
+            let role = JSON.stringify(this.role);
+            axios({
+                url: 'manager/role/doUpdate',
+                params: {rids: this.resources + '', role: role}
+            }).then(response => {
+                let index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+                this.selectAll(this.pageInfo.pageNum, 5);
+            }).catch(error => {
+                layer.msg(error.message);
+            })
         },
         doNotUpdate: function () {
             let index = parent.layer.getFrameIndex(window.name);
@@ -70,6 +91,18 @@ let vm = new Vue({
                 }
                 this.officeTreeObj = $.fn.zTree.init($("#select-treeSelectOfficeEdit"), this.setting, this.officeNodes);
                 $("#treeSelectOfficeEdit").css("display", "inline-block");
+            })
+        },
+        findSelect: function () {
+            layer.open({
+                type: 2,
+                content: 'manager/role/findSelect',
+                area: ["80%", "80%"],
+                end: () => {
+                    this.oid = layer.officeId;
+                    this.role.officeName = layer.officeName;
+                    console.log(this.oid + ' ' + this.role.officeName);
+                }
             })
         },
         initTree: function () {//初始化ztree

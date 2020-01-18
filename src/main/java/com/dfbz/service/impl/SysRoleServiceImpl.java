@@ -55,4 +55,14 @@ public class SysRoleServiceImpl extends IServiceImpl<SysRole> implements SysRole
         return sysRoleMapper.selectByUid(rid);
     }
 
+    @Override
+    public int deleteByRoleId(long roleId) {
+        return sysRoleMapper.deleteByRoleId(roleId);
+    }
+
+    @Override
+    public int insertRoleResource(Long[] rid, Long roleId) {
+        return sysRoleMapper.insertRoleResource(rid, roleId);
+    }
+
 }

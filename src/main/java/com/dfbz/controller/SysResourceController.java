@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -32,4 +33,10 @@ public class SysResourceController {
         return sysResourceService.selectByRid(rid);
     }
 
+    @RequestMapping("selectByUid")
+    public List<SysResource> selectByUid(long uid, HttpSession session) {
+        List<SysResource> sysResources = sysResourceService.selectByUid(uid);
+        session.setAttribute("resources", sysResources);
+        return sysResources;
+    }
 }

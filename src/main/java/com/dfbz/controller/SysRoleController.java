@@ -1,10 +1,13 @@
 package com.dfbz.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.dfbz.domain.Result;
 import com.dfbz.domain.SysRole;
 import com.dfbz.service.SysRoleService;
 import com.github.pagehelper.PageInfo;
+import jdk.nashorn.internal.runtime.Undefined;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,6 +56,11 @@ public class SysRoleController {
         return new ModelAndView("/role/role-save");
     }
 
+    @RequestMapping("findSelect")
+    public ModelAndView findSelect() {
+        return new ModelAndView("/role/role-select");
+    }
+
     @RequestMapping("deleteBatch")
     public Result deleteBatch(long rid, long[] uids) {
         Result result = new Result();
@@ -76,10 +84,19 @@ public class SysRoleController {
         return result;
     }
 
-    @RequestMapping("toUpdate")
-    public SysRole toUpdate(Long rid) {
-//        return sysRoleService.selectByUid(id);
-        return null;
+    @RequestMapping("doUpdate")
+    public Result toUpdate(Long[] rids, String role) {
+        int i = 0;
+        Result result = new Result();
+        SysRole sysRole = JSON.parseObject(role, SysRole.class);
+        i += sysRoleService.updateByPrimaryKeySelective(sysRole);
+        sysRoleService.deleteByRoleId(sysRole.getId());
+        sysRoleService.insertRoleResource(rids, sysRole.getId());
+        if (i > 0) {
+            result.setSuccess(true);
+            result.setMsg("更新成功");
+        }
+        return result;
     }
 
 }

@@ -102,6 +102,12 @@ let vm = new Vue({
                     "name": "所有机构"
                 };
                 this.treeObj = $.fn.zTree.init($("#treeMenu"), this.setting, this.nodes);
+                $('.scrollable').each(function () {
+                    var $this = $(this);
+                    $(this).ace_scroll({
+                        size: $this.data('height') || 250
+                    });
+                });
                 // console.log(this.treeObj)  ;
 
             }).catch(function (error) {

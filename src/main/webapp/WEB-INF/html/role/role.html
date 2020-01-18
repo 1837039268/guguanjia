@@ -179,7 +179,8 @@
                                                             <div class="row padding-tb-10">
                                                                 <div class="col-sm-6">
                                                                     <label class="inline">数据范围：</label>
-                                                                    <select class="chosen-select" name="dataScope"
+                                                                    <select class="chosen-select"
+                                                                            v-model="params.dataScope" name="dataScope"
                                                                             id="userDataScope">
                                                                         <option value="">全部</option>
                                                                         <option value="1">所有数据</option>
@@ -226,11 +227,13 @@
                                                             <div class="row padding-tb-10">
                                                                 <div class="col-sm-6">
                                                                     <label>角色名称：</label>
-                                                                    <input type="text" class="width-80" name="name"/>
+                                                                    <input type="text" class="width-80"
+                                                                           v-model="params.name" name="name"/>
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     <label>角色描述：</label>
-                                                                    <input type="text" class="width-80" name="remarks"/>
+                                                                    <input type="text" class="width-80"
+                                                                           v-model="params.remarks" name="remarks"/>
                                                                 </div>
                                                             </div>
                                                             <div class="padding-trb-10 col-sm-12">
@@ -355,12 +358,10 @@
                                                         <input class="form-control search-query" type="text" readonly
                                                                id="treeselectname" name="" value=""
                                                                datatype="*" nullmsg=请选择归属机构
+                                                               v-model="insertOfficeName"
                                                         >
                                                         <span class="input-group-btn">
-		<span class="btn btn-purple btn-sm" type="button" style="height: 34px;"
-              data-mode="page" data-url="/guguanjia/manager/tag/treeselect"
-              data-data="{url:'/guguanjia/manager/office/tree',id:'treeselectid',nameId:'treeselectname',pIdKey:'parentId',selectIds:'',curId:'-1',checked:'false',rootNodeName:'',isLayer:'true'}"
-              data-title="请选择" data-width="350px" data-height="400px">
+		<span class="btn btn-purple btn-sm" type="button" style="height: 34px;" @click="insertSelectOffice">
 			<i class="ace-icon fa fa-search bigger-110"></i>查找
 		</span>
 	</span>

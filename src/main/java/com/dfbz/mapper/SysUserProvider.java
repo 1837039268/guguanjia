@@ -1,7 +1,9 @@
 package com.dfbz.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,18 +27,30 @@ public class SysUserProvider {
                 " LEFT JOIN sys_role sr ON sur.role_id = sr.id  " +
                 "WHERE " +
                 " su.del_flag = 0 ");
-        if (params.containsKey("rid")&&!StringUtils.isEmpty(params.get("rid"))){
+        if (params.containsKey("rid") && !StringUtils.isEmpty(params.get("rid"))) {
             sb.append(" and sr.id=#{rid} ");
         }
-        if (params.containsKey("uid")&&!StringUtils.isEmpty(params.get("uid"))){
+        if (params.containsKey("uid") && !StringUtils.isEmpty(params.get("uid"))) {
             sb.append(" and su.id=#{uid} ");
         }
-        if (params.containsKey("oid")&&!StringUtils.isEmpty(params.get("oid"))){
+        if (params.containsKey("oid") && !StringUtils.isEmpty(params.get("oid"))) {
             sb.append(" and so.id=#{oid} ");
         }
-        if(params.containsKey("name")&&!StringUtils.isEmpty(params.get("name"))){
+        if (params.containsKey("name") && !StringUtils.isEmpty(params.get("name"))) {
             sb.append(" AND su.`name` like CONCAT('%',#{name},'%') ");
         }
+        System.out.println(sb.toString());
+        return sb.toString();
+    }
+
+    public String insertBatch(@Param("oid") long oid, @Param("rids") List<Long> rids) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("INSERT INTO sys_role_office ( role_id, office_id, create_by, create_date, update_by, update_date, del_flag )\n" +
+                "VALUES ");
+        for (int i = 0; i < rids.size(); i++) {
+            sb.append("(#{rids[" + i + "]}, #{oid}, null, null, null, null, 0),");
+        }
+        sb.deleteCharAt(sb.length() - 1);
         System.out.println(sb.toString());
         return sb.toString();
     }

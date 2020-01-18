@@ -67,4 +67,9 @@ public class SysUserServiceImpl extends IServiceImpl<SysUser> implements SysUser
     public List<SysUser> selectNoRole(long rid, long oid) {
         return sysUserMapper.selectNoRole(rid, oid);
     }
+
+    @Override
+    public int insertBatch(long oid, List<Long> rids) {
+        return sysUserMapper.insertBatch(oid, rids);
+    }
 }

@@ -13,18 +13,24 @@ let vm = new Vue({
                     onClick: this.onClick
                 }
             },
+            role:{},
             nodes: [],
             treeObj: {},
             pageInfo: {},
             params: {
-                pageNum: '',
-                pageSize: '',
                 dataScope: '',//默认值，让下拉出现的时候默认被选中
                 oid: '',
                 name: '',
                 remarks: '',
                 officeName: ''
-            }
+            },
+            insertOid: '',
+            insertOfficeName: '',
+            insertRole: {},
+            insertRoleNodes: [],
+            insertRoleTreeObj: {},
+            insertOfficeNodes: [],
+            insertOfficeTreeObj: {}
         }
     },
     methods: {
@@ -79,7 +85,7 @@ let vm = new Vue({
             console.log(layer.obj);
             layer.open({
                 type: 2,
-                title:'角色修改',
+                title: '角色修改',
                 content: 'manager/role/toUpdatePage',
                 area: ["80%", "80%"],
                 end: () => {
@@ -94,6 +100,7 @@ let vm = new Vue({
                 this.nodes = response.data;
                 this.nodes[this.nodes.length] = {"id": 0, "name": "所有机构"};
                 this.treeObj = $.fn.zTree.init($("#pullDownTreeone"), this.setting, this.nodes);
+                this.treeObj.expandAll(true);
             }).catch(error => {
                 layer.msg(error.message);
             })
@@ -107,6 +114,36 @@ let vm = new Vue({
                 this.params.officeName = '';
             }
             this.selectAll(this.pageInfo.pageNum, this.pageInfo.pageSize);
+        },
+        insertSelectOffice: function () {
+            layer.open({
+                type: 2,
+                content: 'manager/role/findSelect',
+                area: ["80%", "80%"],
+                end: () => {
+                    this.insertOid = layer.officeId;
+                    this.insertOfficeName = layer.officeName;
+                }
+            })
+        },
+        insertInitTree() {
+            axios({
+                url: 'manager/menu/list'
+            }).then(response => {
+                this.insertRoleNodes = response.data;
+                this.insertRoleNodes[this.insertRoleNodes.length] = {"id": 0, "name": "所有权限"}
+                this.selectOfficeByRid();
+            }).catch(error => {
+                layer.msg(error.message);
+            })
+        },
+        selectOfficeByRid: function () {
+            axios({
+                url: 'manager/office/selectByRid',
+                params: {rid: this.role.id}
+            }).then(response => {
+
+            })
         }
     },
     created: function () {

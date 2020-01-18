@@ -65,19 +65,19 @@
                                 <tbody>
                                 <tr class="FormData">
                                     <td class="CaptionTD">真实姓名</td>
-                                    <td class="DataTD width-100"><input type="text" name="name" datatype="*"
+                                    <td class="DataTD width-100"><input type="text" v-model="user.name" name="name" datatype="*"
                                                                         nullmsg="请输入角色名！" value="超级管理员"></td>
                                 </tr>
                                 <tr class="FormData">
                                     <td class="CaptionTD">手机</td>
                                     <td class="DataTD">
-                                        <input type="text" value="" name="phone">
+                                        <input type="text" value="" v-model="user.phone" name="phone">
                                     </td>
                                 </tr>
                                 <tr class="FormData">
                                     <td class="CaptionTD">密码</td>
                                     <td class="DataTD">
-                                        <input type="password" value="" name="password" class="width-70">
+                                        <input type="password" value="" v-model="user.password" name="password" class="width-70">
                                         <span class="red">*不填写则不修改</span>
                                         <!-- datatype="*6-16" errormsg="密码范围在6~16位之间！" -->
                                     </td>
@@ -118,19 +118,19 @@
                                 <tr class="FormData">
                                     <td class="CaptionTD">电话</td>
                                     <td class="DataTD">
-                                        <input type="text" value="" name="moblie">
+                                        <input type="text" value="" v-model="user.moblie" name="moblie">
                                     </td>
                                 </tr>
                                 <tr class="FormData">
                                     <td class="CaptionTD">邮箱</td>
                                     <td class="DataTD">
-                                        <input type="text" value="" name="email">
+                                        <input type="text" value="" v-model="user.email" name="email">
                                     </td>
                                 </tr>
                                 <tr class="FormData">
                                     <td class="CaptionTD">描述</td>
                                     <td class="DataTD">
-                                        <textarea name="remarks" class="autosize-transition form-control "
+                                        <textarea name="remarks" v-model="user.remarks" class="autosize-transition form-control "
                                                   style="resize: none; overflow: hidden; word-wrap: break-word; height: 52px;">管理员</textarea>
                                     </td>
                                 </tr>
@@ -141,7 +141,7 @@
 
                     <div class="width-100 clearfix" tag-save-btn=""
                          style="bottom: -36px; left: 0px; position: absolute;">
-	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="sysuser-save-save">
+	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" @click="doUpdate" id="sysuser-save-save">
 		<i class="ace-icon fa fa-floppy-o align-top bigger-125"></i> 确 定
 	</span>
                         <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right" id="sysuser-save-cancel">

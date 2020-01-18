@@ -72,4 +72,33 @@ public class SysRoleProvider {
         return sb.toString();
     }
 
+    public String insertRoleResource(@Param("rids") Long[] rids, @Param("roleId") Long roleId) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("insert into sys_role_resource(role_id,resource_id,create_date,update_date,del_flag) " +
+                " values");
+        for (int i = 0; i < rids.length; i++) {
+            sb.append("( #{roleId}, #{rids[" + i + "]}, now(), now(), 0 ),");
+        }
+//        sb.deleteCharAt(sb.length() - 1);
+        System.out.println(sb.toString());
+//        return sb.toString();
+
+        return sb.substring(0, sb.lastIndexOf(","));
+    }
+
+
+    public String deleteResourceId(@Param("rids") long[] rids) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("delete from sys_role_resource where resource_id in ");
+        sb.append("(");
+        for (int i = 0; i < rids.length; i++) {
+            sb.append("#{rids[" + i + "]},");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(")");
+        System.out.println(sb.toString());
+        return sb.toString();
+    }
+
+
 }

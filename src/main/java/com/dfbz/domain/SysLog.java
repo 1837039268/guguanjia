@@ -1,5 +1,7 @@
 package com.dfbz.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,6 +18,7 @@ public class SysLog {
     /**
      * 日志类型
      */
+    @Column(name = "type")
     private String type;
 
     /**
@@ -51,7 +54,41 @@ public class SysLog {
     /**
      * 操作方式
      */
+    @Column(name = "method")
     private String method;
+
+    @Column(name = "params")
+    private String params;
+
+    @Column(name = "exception")
+    private String exception;
+
+    @Column(name = "description")
+    private String description;
+
+    public String getParams() {
+        return params;
+    }
+
+    public void setParams(String params) {
+        this.params = params;
+    }
+
+    public String getException() {
+        return exception;
+    }
+
+    public void setException(String exception) {
+        this.exception = exception;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     /**
      * 获取编号
@@ -121,6 +158,7 @@ public class SysLog {
      *
      * @param createDate 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
@@ -195,5 +233,22 @@ public class SysLog {
      */
     public void setMethod(String method) {
         this.method = method == null ? null : method.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "SysLog{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createDate=" + createDate +
+                ", remoteAddr='" + remoteAddr + '\'' +
+                ", userAgent='" + userAgent + '\'' +
+                ", requestUri='" + requestUri + '\'' +
+                ", method='" + method + '\'' +
+                ", params='" + params + '\'' +
+                ", exception='" + exception + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

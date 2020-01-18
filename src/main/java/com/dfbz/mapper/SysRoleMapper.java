@@ -22,6 +22,12 @@ public interface SysRoleMapper extends Mapper<SysRole> {
     @SelectProvider(type = SysRoleProvider.class, method = "selectByCondition")
     List<SysRole> selectByCondition(Map<String, Object> params);
 
+    @Delete("delete from sys_role_resource where role_id = #{roleId}")
+    int deleteByRoleId(long roleId);
+
+    @InsertProvider(type = SysRoleProvider.class,method = "insertRoleResource")
+    int insertRoleResource(@Param("rids") Long[] rids, @Param("roleId") Long roleId);
+
     @DeleteProvider(type = SysRoleProvider.class, method = "deleteBatch")
     int deleteBatch(@Param("rid") long rid, @Param("uids") long[] uids);
 
@@ -30,4 +36,6 @@ public interface SysRoleMapper extends Mapper<SysRole> {
 
     @Select("")
     SysRole selectByUid(Long rid);
+
+
 }

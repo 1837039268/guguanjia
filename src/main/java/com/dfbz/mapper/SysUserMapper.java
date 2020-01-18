@@ -71,4 +71,7 @@ public interface SysUserMapper extends Mapper<SysUser> {
             "\toffice_id = #{oid} \n" +
             "\tAND id NOT IN ( SELECT sur.user_id FROM sys_role sr, sys_user_role sur WHERE sr.id = #{rid} AND sr.id = sur.role_id )")
     List<SysUser> selectNoRole(@Param("rid") long rid, @Param("oid") long oid);
+
+    @InsertProvider(type = SysUserProvider.class, method = "insertBatch")
+    int insertBatch(@Param("oid") long oid, @Param("rids") List<Long> rids);
 }
